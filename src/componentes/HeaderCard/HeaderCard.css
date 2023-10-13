@@ -1,0 +1,43 @@
+.card__header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 160px 80px 160px;
+}
+
+.btnAdd2 {
+    position: absolute;
+    right: 30px;
+    border: none;
+    padding: 0;
+    height: 100px;
+}
+
+.btnAdd2 img{
+    background-color: #ffffff;
+    width: 100px;
+    cursor: pointer;
+}
+
+.card__header h1 {
+    margin: auto;
+    color: #6278F7;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.span__item {
+    background-color: #6278F7;
+    width: 64px;
+    height: 4px;
+}
+
+.titleCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-left: 6vw;
+}
+

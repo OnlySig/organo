@@ -3,6 +3,7 @@ import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import Time from './componentes/Time';
 import { v4 as uuidv4 } from 'uuid';
+import { Footer } from './componentes/Footer';
 
 function App() {
 
@@ -67,11 +68,17 @@ function App() {
     setTimes([...times, { ...novoTime, id: uuidv4()}])
   }
 
+  const aoFavoritar = (id) => {
+    setColaboradores(colaboradores.map(colaborador => {
+      if(colaborador.id === id) colaborador.favorito = !colaborador.favorito
+      return colaborador
+    }))
+  }
+
   return (
     <div className="App">
       <Banner />
-      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} cadastrarTime={cadastrarTime}/>
-
+      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} cadastrarTime={cadastrarTime} />
       {times.map((time, index) => 
         <Time 
           key={index} 
@@ -79,9 +86,10 @@ function App() {
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
           deletar={deletarColab}
           mudarCor={mudarCorTime}
+          favoritar={aoFavoritar}
         />
       )}   
-
+    <Footer/>
     </div>
   );
 }
